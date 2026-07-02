@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Info</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    /* 레터박스: 모든 콘텐츠를 480px 컬럼으로 중앙 제한 */
+    #page-frame {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      background: #000;
+    }
+
+    /* ── INFO SECTION ── */
+    #info-section {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: #000;
+    }
+    #info-section img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    #info-section img.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-frame">
+  <section id="info-section">
+    <img src="info.png" alt="info" />
+  </section>
+</div>
+
+<script>
+(function() {
+  const img = document.querySelector('#info-section img');
+  function show() { img.classList.add('visible'); }
+  if (img.complete) show();
+  else img.addEventListener('load', show);
+})();
+</script>
+</body>
+</html>
